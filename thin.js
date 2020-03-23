@@ -150,10 +150,10 @@ $.fn.extend({
                             c: p.c,
                             t: p.t.case[v]
                         });
-                    } else if (p.t.case.default !== undefined) {
+                    } else if (p.t.default !== undefined) {
                         render_by_templates({
                             c: p.c,
-                            t: p.t.case.default
+                            t: p.t.default
                         });
                     }
                 } else if (p.t.foreach !== undefined) {
