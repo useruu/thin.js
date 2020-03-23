@@ -17,10 +17,62 @@
 
 使用渲染器
 ``` javascript
+//var template={};
+//var template=[];
 $(selector).render({
         data:data,
         template:template
 });
+```
+使用弹出层
+``` javascript
+poplayer({
+    width: '500px', height: '500px', header: "a pop layer",
+    template: [
+        {
+            e: "div", a: {id: "", name: "",  class: "pop-container",},
+            t: [
+                {e: "label", t: "sample", style: {}},
+            ]
+        },
+        {e: "sapn", t: "say some thing"},
+        {
+            e: 'footer',
+            t: [
+                {
+                    e: "button", a: {class: " ", type: "button"}, t: "确定",
+                    click: function (ele) {
+                      
+                    }
+                },
+                {
+                    e: "button", a: {class: "s_close", type: "button"}, t: "取消",
+                    click: function (p) {
+                        $(p.sender).closest("popmask").remove();
+                    }
+                }
+            ]
+        }
+    ]
+
+});
+```
+使用if 
+``` javascript
+var template={e: "sapn", t: {if: 1==1,then:"this is then",esle:"this is else"}};
+```
+使用switch
+``` javascript
+<select id="select1" name="select1">
+        <option value="">option</option>
+        <option value="A">optionA</option>
+        <option value="A">optionB</option>
+</select>
+var template={e: "sapn", t: {switch: $("#select1").val(),
+                                case:{"A":"case A","B":"case B"},
+                                default:"switch default"
+                             }
+              };
 ```
 
 ## What's new ?
@@ -29,5 +81,7 @@ V1.1
 * if
 * switch case
 * bind
+
+fore more help see /samples
 
 
