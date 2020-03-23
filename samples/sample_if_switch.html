@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../jquery.js"></script>
+    <script src="../thin.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+	<select id="area" name="area">
+		<option value="">area</option>
+		<option value="area1">area1</option>
+		<option value="area2">area2</option>
+	</select>
+	<select id="category" name="category">
+		<option value="">category</option>
+		<option value="category1">category1</option>
+		<option value="category2">category2</option>
+	</select>
+    <container></container>
+
+    <script>
+        $(function() {
+			$('#area').change(function (obj) {
+                var area=$("#area").val();
+                var category=$("#category").val();
+                $("container").render({
+                	template: {
+                    	e: "select", a: {id: "price", name: "price"},
+                        	t:{ if:area == "area1",
+                            then: { switch: category,
+                                case: {"category1":[{e: "option", a: {value: ""}, t: "price"},
+                                        {e: "option", a: {value: "3"}, t: "3unit"},
+                                        {e: "option", a: {value: "4"}, t: "4unit"}],
+                                    "category2":[{e: "option", a: {value: ""}, t: "price"},
+                                            {e: "option", a: {value: "5"}, t: "5unit"},
+                                            {e: "option", a: {value: "6"}, t: "6unit"}]
+                                },
+                                default: [{e: "option", a: {value: ""}, t: "price"},
+                                    {e: "option", a: {value: "7"}, t: "7unit"}]
+                            },
+                            else:[{e: "option", a: {value: ""}, t: "price"},
+                                {e: "option", a: {value: "1"}, t: "1unit"},
+                                {e: "option", a: {value: "2"}, t: "2unit"},
+                                
+                            ]
+                        }
+                    
+                }
+            });
+        });
+
+            })
+    </script>
+</body>
+
+</html>
