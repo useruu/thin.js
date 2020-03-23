@@ -82,6 +82,6 @@ V1.1
 * switch case
 * bind
 
-fore more help see /samples
+for more help see /samples
 
 
